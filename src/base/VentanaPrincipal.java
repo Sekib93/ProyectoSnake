@@ -14,6 +14,8 @@ public class VentanaPrincipal {
         this.ventana = new JFrame();
         this.ventana.setBounds(200,100, this.anchoPantalla, this.altoPantalla);
         this.ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.ventana.setTitle("FAKE SNAKE");
+        this.ventana.setResizable(false);
     }
 
     /**
