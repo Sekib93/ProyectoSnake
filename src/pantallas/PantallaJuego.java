@@ -71,15 +71,27 @@ public class PantallaJuego implements Pantalla, KeyListener{
             if(tiempo>5){
                 if(derecha){
                     posX+=50;
+                    if(posX>=panelJuego.getWidth()){
+                        posX=0;
+                    }
                 }
                 if(izquierda){
                     posX-=50;
+                    if(posX<=0){
+                        posX=panelJuego.getWidth();
+                    }
                 }
                 if(arriba){
                     posY-=50;
+                    if(posY<=0){
+                        posY=panelJuego.getHeight();
+                    }
                 }
                 if(abajo){
                     posY+=50;
+                    if(posY>=panelJuego.getHeight()){
+                        posY=0;
+                    }
                 }
 
                 serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
@@ -105,7 +117,8 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     do{
                         manzana.setPosX(rd.nextInt(panelJuego.getWidth()));
                         manzana.setPosY(rd.nextInt(panelJuego.getHeight()));
-                    } while ((manzana.getPosY()>=panelJuego.getHeight() || manzana.getPosY()<=0) && (manzana.getPosX()>=panelJuego.getWidth() || manzana.getPosX()<=0));
+                    } while ((manzana.getPosY()>=panelJuego.getHeight() || manzana.getPosY()<=0) &&
+                            (manzana.getPosX()>=panelJuego.getWidth() || manzana.getPosX()<=0));
                     manzanaComida =false;
                 }
 

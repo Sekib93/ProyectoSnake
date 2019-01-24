@@ -29,7 +29,7 @@ public class PantallaGameOver implements Pantalla {
     @Override
     public void inicializarPantalla() {
         try {
-            bfOriginal = ImageIO.read(new File("imagenes/gameOver"));
+            bfOriginal = ImageIO.read(new File("imagenes/gameOver.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,14 +43,16 @@ public class PantallaGameOver implements Pantalla {
         g.drawImage(imageReescalada,0,0,null);
         g.setColor(Color.WHITE);
         g.setFont(new Font("American Typewriter", Font.BOLD, 60));
-        g.drawString(String.valueOf(puntuacion), panelJuego.getWidth()-50, panelJuego.getHeight()+50);
+        g.drawString(String.valueOf(puntuacion), panelJuego.getWidth()-150, panelJuego.getHeight()-50);
         g.setFont(new Font("American Typewriter", Font.BOLD, 40));
-        g.drawString(String.valueOf(puntuacion),panelJuego.getWidth()-780,panelJuego.getHeight()-250);
+        g.drawString(String.valueOf("HAZ CLICK PARA VOLVER A JUGAR"),panelJuego.getWidth()/2-400,
+                panelJuego.getHeight()/2+250);
         reescalarImagen();
     }
 
     private void reescalarImagen() {
-        imageReescalada = bfOriginal.getScaledInstance(panelJuego.getWidth(),panelJuego.getHeight(), Image.SCALE_SMOOTH);
+        imageReescalada = bfOriginal.getScaledInstance
+                (panelJuego.getWidth(),panelJuego.getHeight(), Image.SCALE_SMOOTH);
     }
 
     @Override
@@ -60,7 +62,10 @@ public class PantallaGameOver implements Pantalla {
 
     @Override
     public void pulsarRaton(MouseEvent e) {
-
+        puntuacion = 0;
+        PantallaJuego pantallaJuego = new PantallaJuego(panelJuego);
+        pantallaJuego.inicializarPantalla();
+        panelJuego.setPantallaActual(pantallaJuego);
     }
 
     @Override
