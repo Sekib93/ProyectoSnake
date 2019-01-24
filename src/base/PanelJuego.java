@@ -4,15 +4,12 @@ import pantallas.PantallaInicial;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 /**
  * PanelJuego, controla los gráficos del juego.
  */
-public class PanelJuego extends JPanel implements Runnable, ComponentListener, MouseListener {
+public class PanelJuego extends JPanel implements Runnable, ComponentListener, MouseListener, KeyListener {
     private static final long serialVersionUID = 1L;
     private Pantalla pantallaActual;
 
@@ -20,7 +17,9 @@ public class PanelJuego extends JPanel implements Runnable, ComponentListener, M
 
 
     public PanelJuego() {
+        this.addKeyListener(this);
         this.addComponentListener(this);
+        this.addMouseListener(this);
         new Thread(this).start();
 
         this.pantallaActual = new PantallaInicial(this);
@@ -102,6 +101,21 @@ public class PanelJuego extends JPanel implements Runnable, ComponentListener, M
 
     @Override
     public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
 
     }
 }

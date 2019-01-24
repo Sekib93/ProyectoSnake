@@ -6,6 +6,7 @@ import base.Pantalla;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.ComponentEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -50,19 +51,24 @@ public class PantallaInicial implements Pantalla {
     public void ejecutarFrame() {
         this.contadorColorFrames++;
         if(this.contadorColorFrames%CAMBIO_COLOR == 0){
-            if(this.color.equals(Color.YELLOW)){
+            if(this.color.equals(Color.GREEN)){
                 this.color = Color.RED;
             } else {
-                this.color = Color.YELLOW;
+                this.color = Color.GREEN;
             }
         }
     }
 
     @Override
     public void pulsarRaton(MouseEvent e) {
-        PantallaJuego pantallaJuego = new PantallaJuego();
+        PantallaJuego pantallaJuego = new PantallaJuego(panelJuego);
         pantallaJuego.inicializarPantalla();
         panelJuego.setPantallaActual(pantallaJuego);
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
     }
 
     @Override
