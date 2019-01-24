@@ -19,7 +19,7 @@ public class VentanaPrincipal {
     }
 
     /**
-     *Hacemos visible la ventana
+     * Hacemos visible la ventana
      */
     public void inicializar(){
         this.ventana.setVisible(true);

@@ -4,11 +4,15 @@ import pantallas.PantallaInicial;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * PanelJuego, controla los gráficos del juego.
  */
-public class PanelJuego extends JPanel implements Runnable{
+public class PanelJuego extends JPanel implements Runnable, ComponentListener, MouseListener {
     private static final long serialVersionUID = 1L;
     private Pantalla pantallaActual;
 
@@ -16,9 +20,10 @@ public class PanelJuego extends JPanel implements Runnable{
 
 
     public PanelJuego() {
+        this.addComponentListener(this);
         new Thread(this).start();
 
-        this.pantallaActual = new PantallaInicial();
+        this.pantallaActual = new PantallaInicial(this);
         this.pantallaActual.inicializarPantalla();
     }
 
@@ -53,5 +58,50 @@ public class PanelJuego extends JPanel implements Runnable{
             pantallaActual.ejecutarFrame();
             Toolkit.getDefaultToolkit().sync();
         }
+    }
+
+    @Override
+    public void componentResized(ComponentEvent e) {
+        this.pantallaActual.redimensionarPantalla(e);
+    }
+
+    @Override
+    public void componentMoved(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void componentShown(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void componentHidden(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        pantallaActual.pulsarRaton(e);
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
