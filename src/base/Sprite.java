@@ -7,17 +7,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class Sprite {
-    private static final int POS_X = 10;
-    private static final int POS_Y = 10;
+    private int posX = 10;
+    private int posY = 10;
     private int ancho;
     private int alto;
     private Color color = Color.BLACK;
     private String rutaImagen;
     private BufferedImage bfImagen;
-    private boolean derecha = true;
-    private boolean izquierda = false;
-    private boolean arriba = false;
-    private boolean abajo = false;
+
 
 
     public Sprite(int tamanyo, String rutaImagen) {
@@ -73,11 +70,14 @@ public class Sprite {
     public void setAlto(int alto) {
         this.alto = alto;
     }
+    public void moverSprite(){
 
+    }
     /**
      * Metodo para actualizar el buffer de cada Sprite
      */
     public void actualizarBuffer(){
+
         this.bfImagen = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_ARGB);
         Graphics g = this.bfImagen.getGraphics();
 
@@ -92,6 +92,6 @@ public class Sprite {
     }
 
     public void pintarSprite(Graphics g){
-
+        g.drawImage(bfImagen, posX, posY,null);
     }
 }
