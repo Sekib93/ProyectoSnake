@@ -94,7 +94,9 @@ public class PantallaJuego implements Pantalla, KeyListener{
 
                 for (int i = 2; i < serpiente.size(); i++) {
                         if(serpiente.get(0).colision(serpiente.get(i))){
-                            System.out.println("BOOOOOOOM");
+                            PantallaGameOver pantallaGameOver = new PantallaGameOver(panelJuego,puntuacion);
+                            pantallaGameOver.inicializarPantalla();
+                            panelJuego.setPantallaActual(pantallaGameOver);
                         }
                     }
 
