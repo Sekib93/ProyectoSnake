@@ -9,7 +9,7 @@ import java.awt.event.*;
 /**
  * PanelJuego, controla los gráficos del juego.
  */
-public class PanelJuego extends JPanel implements Runnable, ComponentListener, MouseListener, KeyListener {
+public class PanelJuego extends JPanel implements Runnable, ComponentListener, MouseListener{
     private static final long serialVersionUID = 1L;
     private Pantalla pantallaActual;
 
@@ -17,7 +17,7 @@ public class PanelJuego extends JPanel implements Runnable, ComponentListener, M
 
 
     public PanelJuego() {
-        this.addKeyListener(this);
+        this.setFocusable(true);
         this.addComponentListener(this);
         this.addMouseListener(this);
         new Thread(this).start();
@@ -104,18 +104,5 @@ public class PanelJuego extends JPanel implements Runnable, ComponentListener, M
 
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
 
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
 }

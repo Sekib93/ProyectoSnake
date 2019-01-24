@@ -68,7 +68,6 @@ public class PantallaInicial implements Pantalla {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
     }
 
     @Override

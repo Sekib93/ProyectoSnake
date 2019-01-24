@@ -1,5 +1,6 @@
 package pantallas;
 
+import base.Manzana;
 import base.PanelJuego;
 import base.Pantalla;
 import base.Sprite;
@@ -10,8 +11,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Random;
 
-public class PantallaJuego implements Pantalla, KeyListener {
+public class PantallaJuego implements Pantalla, KeyListener{
 
     private PanelJuego panelJuego;
 
@@ -20,18 +22,19 @@ public class PantallaJuego implements Pantalla, KeyListener {
     private boolean arriba = false;
     private boolean abajo = false;
 
-    private Sprite sprite;
     private ArrayList<Sprite> serpiente;
 
     private int posX = 10;
     private int posY = 10;
-    private int tamanyo = 5;
+    private boolean manzanaComida = false;
+    private Manzana manzana;
+    private int tiempo = 0;
 
 
     public PantallaJuego(PanelJuego panelJuego) {
         this.panelJuego = panelJuego;
         this.serpiente = new ArrayList<>();
-
+        this.panelJuego.addKeyListener(this);
     }
     /**
      * Primero comprobamos que nuestra serpiente tenga la cabeza e
@@ -41,47 +44,73 @@ public class PantallaJuego implements Pantalla, KeyListener {
     @Override
     public void inicializarPantalla() {
         this.panelJuego.setBackground(Color.black);
+        manzana = new Manzana(300,300,"imagenes/manzana.png");
         if(serpiente.size() == 0){
-            sprite = new Sprite(posX, posY, 30, "imagenes/spriteSerpiente/blueHeadStraight.png");
-            serpiente.add(sprite);
+            serpiente.add(new Sprite(posX, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
         }
     }
 
     @Override
     public void pintarPantalla(Graphics g) {
         for (int i = 0; i < serpiente.size(); i++) {
+            if(i==0){
+              serpiente.get(i).setRutaImagen("imagenes/spriteSerpiente/blueHeadStraight.png");
+            }
             serpiente.get(i).pintarSprite(g);
         }
-        System.out.println("a");
-    }
+        manzana.pintarSprite(g);
 
+    }
 
     @Override
     public void ejecutarFrame() {
-        System.out.println("b");
-            if(derecha){
-                posX++;
-            }
-            if(izquierda){
-                posX--;
-            }
-            if(arriba){
-                posY--;
-            }
-            if(abajo){
-                posY++;
-            }
-        serpiente.add(new Sprite(posX,posY,20,"imagenes/spriteSerpiente/blueHeadStraight.png"));
-
-        sprite = new Sprite(posX,posY,30,"imagenes/spriteSerpiente/blueBodyStraight.png");
-            serpiente.add(sprite);
-            /**
-             * Para dar el efecto de avanzar borramos la primera posicion de la serpiente
-             */
-            if(serpiente.size() > tamanyo){
+            tiempo++;
+            if(tiempo>5){
+                if(derecha){
+                    posX+=50;
+                }
+                if(izquierda){
+                    posX-=50;
+                }
+                if(arriba){
+                    for (int i = 0; i < serpiente.size(); i++) {
+                        serpiente.get(i).setRutaImagen("imagenes/spriteSerpiente/blueBodyStraightVertical.png");
+                    }
+                    posY-=50;
+                }
+                if(abajo){
+                    posY+=50;
+                }
+                serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
                 serpiente.remove(0);
+                if(manzana.colisionan(serpiente.get(serpiente.size()-1))){
+                    manzanaComida = true;
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
+                }
+                for (int i = 0; i < serpiente.size()-1; i++) {
+                    for (int j = i+1; j < serpiente.size(); j++) {
+                        if(serpiente.get(i).colisionan(serpiente.get(j))){
+                            System.out.println("BOOOOOOOM");
+                        }
+                    }
+
+                }
+                if(manzanaComida){
+                    Random rd = new Random();
+                    do{
+                        manzana.setPosX(rd.nextInt(panelJuego.getWidth()));
+                        manzana.setPosY(rd.nextInt(panelJuego.getHeight()));
+                    } while (manzana.getPosX()>=panelJuego.getWidth() || manzana.getPosX()<=0
+                    || manzana.getPosY()>=panelJuego.getHeight() || manzana.getPosY()<=0);
+
+                    manzanaComida =false;
+                }
+
+                tiempo = 0;
             }
-    }
+
+
+        }
 
     @Override
     public void pulsarRaton(MouseEvent e) {
@@ -105,21 +134,25 @@ public class PantallaJuego implements Pantalla, KeyListener {
             derecha = true;
             arriba = false;
             abajo = false;
+            tiempo=5;
         }
         if(tecla == KeyEvent.VK_LEFT && !derecha){
             izquierda = true;
             arriba = false;
             abajo = false;
+            tiempo=5;
         }
         if(tecla == KeyEvent.VK_UP && !abajo){
             derecha = false;
             arriba = true;
             izquierda = false;
+            tiempo=5;
         }
         if(tecla == KeyEvent.VK_DOWN && !arriba){
             derecha = false;
             izquierda = false;
             abajo = true;
+            tiempo=5;
         }
     }
 
@@ -127,4 +160,5 @@ public class PantallaJuego implements Pantalla, KeyListener {
     public void keyReleased(KeyEvent e) {
 
     }
+
 }

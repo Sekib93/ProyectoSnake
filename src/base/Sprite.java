@@ -41,6 +41,22 @@ public class Sprite {
         actualizarBuffer();
     }
 
+    public int getPosX() {
+        return posX;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
+
     public String getRutaImagen() {
         return rutaImagen;
     }
@@ -86,11 +102,24 @@ public class Sprite {
             g.drawImage(imagenSprite.getScaledInstance(ancho,alto, Image.SCALE_SMOOTH), 0 , 0, null);
         } catch (IOException e) {
             g.setColor(Color.BLACK);
-            g.fillRect(posX * ancho,posY * alto,ancho,alto);
-            g.setColor(Color.GREEN);
-            g.fillRect(posX * ancho+2,posY * alto+2,ancho-4,alto-4);
-            g.dispose();
+            g.fillRect(posX,posY,ancho,alto);
         }
+    }
+    public boolean colisionan(Sprite otroSprite) {
+        boolean colision = false;
+        int centro1 = posX+(ancho/2);
+        int centroUno = posY+(alto/2);
+        int centro2 = otroSprite.getPosX()+(otroSprite.getAncho()/2);
+        int centroOtro = otroSprite.getPosY()+(otroSprite.getAlto()/2);
+        int r1 = ancho/2;
+        int r2 = otroSprite.getAncho()/2;
+        double distancia = Math.sqrt(Math.pow((centro1-centro2), 2)
+                +Math.pow((centroUno-centroOtro), 2));
+        if((r1+r2)>=distancia) {
+            colision = true;
+        }
+        return colision;
+
     }
 
     public void pintarSprite(Graphics g){
