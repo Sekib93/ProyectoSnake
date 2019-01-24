@@ -105,21 +105,28 @@ public class Sprite {
             g.fillRect(posX,posY,ancho,alto);
         }
     }
-    public boolean colisionan(Sprite otroSprite) {
-        boolean colision = false;
-        int centro1 = posX+(ancho/2);
-        int centroUno = posY+(alto/2);
-        int centro2 = otroSprite.getPosX()+(otroSprite.getAncho()/2);
-        int centroOtro = otroSprite.getPosY()+(otroSprite.getAlto()/2);
-        int r1 = ancho/2;
-        int r2 = otroSprite.getAncho()/2;
-        double distancia = Math.sqrt(Math.pow((centro1-centro2), 2)
-                +Math.pow((centroUno-centroOtro), 2));
-        if((r1+r2)>=distancia) {
-            colision = true;
+    public boolean colision(Sprite otro) {
+        boolean colisionX = false;
+        boolean colisionY = false;
+        if(posX+ancho>otro.posX) {//el de la izquierda es el otro
+            if(otro.getPosX()+otro.getAncho() > posX) {
+                colisionX = true;
+            }
+        } else {//si no soy yo el de la izquierda
+            if(posX+ancho > otro.getPosX()) {
+                colisionX = true;
+            }
         }
-        return colision;
-
+        if(posY>otro.posY) {//el de la izquierda es el otro
+            if(otro.getPosY()+otro.getAlto() > posY) {
+                colisionY = true;
+            }
+        } else {//si no soy yo el de la izquierda
+            if(posY+alto > otro.getPosY()) {
+                colisionY = true;
+            }
+        }
+        return colisionX && colisionY;
     }
 
     public void pintarSprite(Graphics g){

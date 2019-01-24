@@ -28,7 +28,9 @@ public class PantallaJuego implements Pantalla, KeyListener{
     private int posY = 10;
     private boolean manzanaComida = false;
     private Manzana manzana;
+    private int puntuacion = 0;
     private int tiempo = 0;
+    private Font fuente;
 
 
     public PantallaJuego(PanelJuego panelJuego) {
@@ -46,16 +48,17 @@ public class PantallaJuego implements Pantalla, KeyListener{
         this.panelJuego.setBackground(Color.black);
         manzana = new Manzana(300,300,"imagenes/manzana.png");
         if(serpiente.size() == 0){
-            serpiente.add(new Sprite(posX, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
+            serpiente.add(new Sprite(posX+50, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
         }
+        fuente = new Font("American Typewriter", Font.BOLD, 40);
     }
 
     @Override
     public void pintarPantalla(Graphics g) {
+        g.setFont(fuente);
+        g.setColor(Color.WHITE);
+        g.drawString(String.valueOf(puntuacion),panelJuego.getWidth()-50, 50);
         for (int i = 0; i < serpiente.size(); i++) {
-            if(i==0){
-              serpiente.get(i).setRutaImagen("imagenes/spriteSerpiente/blueHeadStraight.png");
-            }
             serpiente.get(i).pintarSprite(g);
         }
         manzana.pintarSprite(g);
@@ -73,36 +76,34 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     posX-=50;
                 }
                 if(arriba){
-                    for (int i = 0; i < serpiente.size(); i++) {
-                        serpiente.get(i).setRutaImagen("imagenes/spriteSerpiente/blueBodyStraightVertical.png");
-                    }
                     posY-=50;
                 }
                 if(abajo){
                     posY+=50;
                 }
-                serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
+
+                serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
                 serpiente.remove(0);
+
+
                 if(manzana.colisionan(serpiente.get(serpiente.size()-1))){
                     manzanaComida = true;
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
+                    puntuacion++;
+                    serpiente.add(new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
                 }
-                for (int i = 0; i < serpiente.size()-1; i++) {
-                    for (int j = i+1; j < serpiente.size(); j++) {
-                        if(serpiente.get(i).colisionan(serpiente.get(j))){
+
+                for (int i = 2; i < serpiente.size(); i++) {
+                        if(serpiente.get(0).colision(serpiente.get(i))){
                             System.out.println("BOOOOOOOM");
                         }
                     }
 
-                }
                 if(manzanaComida){
                     Random rd = new Random();
                     do{
                         manzana.setPosX(rd.nextInt(panelJuego.getWidth()));
                         manzana.setPosY(rd.nextInt(panelJuego.getHeight()));
-                    } while (manzana.getPosX()>=panelJuego.getWidth() || manzana.getPosX()<=0
-                    || manzana.getPosY()>=panelJuego.getHeight() || manzana.getPosY()<=0);
-
+                    } while ((manzana.getPosY()>=panelJuego.getHeight() || manzana.getPosY()<=0) && (manzana.getPosX()>=panelJuego.getWidth() || manzana.getPosX()<=0));
                     manzanaComida =false;
                 }
 
