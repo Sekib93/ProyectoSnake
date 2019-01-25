@@ -31,7 +31,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
     private int puntuacion = 0;
     private int tiempo = 0;
     private Font fuente;
-
+    private int velocidad = 5;
 
     public PantallaJuego(PanelJuego panelJuego) {
         this.panelJuego = panelJuego;
@@ -53,6 +53,10 @@ public class PantallaJuego implements Pantalla, KeyListener{
         fuente = new Font("American Typewriter", Font.BOLD, 40);
     }
 
+    /**
+     * Pinta por pantalla
+     * @param g
+     */
     @Override
     public void pintarPantalla(Graphics g) {
         g.setFont(fuente);
@@ -68,10 +72,12 @@ public class PantallaJuego implements Pantalla, KeyListener{
     @Override
     public void ejecutarFrame() {
             tiempo++;
-            if(tiempo>5){
+        /**
+         * genera una pieza del cuerpo nueva y borra la ultima para dar sensacion de movimiento
+         */
+        if(tiempo>velocidad){
                 if(derecha){
                     serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariDerecha.png"));
-                    //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
                     serpiente.remove(0);
                     posX+=50;
                     if(posX>=panelJuego.getWidth()){
@@ -80,7 +86,6 @@ public class PantallaJuego implements Pantalla, KeyListener{
                 }
                 if(izquierda){
                     serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariIzquierda.png"));
-                    //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightIzquierda.png"));
                     serpiente.remove(0);
                     posX-=50;
                     if(posX<=0){
@@ -89,7 +94,6 @@ public class PantallaJuego implements Pantalla, KeyListener{
                 }
                 if(arriba){
                     serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariArriba.png"));
-                    //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightArriba.png"));
                     serpiente.remove(0);
                     posY-=50;
                     if(posY<=0){
@@ -98,7 +102,6 @@ public class PantallaJuego implements Pantalla, KeyListener{
                 }
                 if(abajo){
                     serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariAbajo.png"));
-                    //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightAbajo.png"));
                     serpiente.remove(0);
                     posY+=50;
                     if(posY>=panelJuego.getHeight()){
@@ -108,9 +111,15 @@ public class PantallaJuego implements Pantalla, KeyListener{
 
                 tiempo = 0;
             }
+        /**
+         * Si come la manzana aparecera una nueva parte del cuerpo mirando en la direccion a la que iba
+         */
         if(manzana.colisionan(serpiente.get(serpiente.size()-1))){
             manzanaComida = true;
             puntuacion++;
+            if(puntuacion%10==0 && velocidad>0){
+                velocidad--;
+            }
             if(arriba){
                 serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariArriba.png"));
             }else if(abajo){
@@ -122,6 +131,9 @@ public class PantallaJuego implements Pantalla, KeyListener{
             }
 
         }
+        /**
+         * Si la serpiente choca con sigo misma perdera el juego y saltara la pantalla gameOver
+         */
         for (int i = 2; i < serpiente.size(); i++) {
             if(serpiente.get(0).colision(serpiente.get(i))){
                 PantallaGameOver pantallaGameOver = new PantallaGameOver(panelJuego,puntuacion);
@@ -129,6 +141,9 @@ public class PantallaJuego implements Pantalla, KeyListener{
                 panelJuego.setPantallaActual(pantallaGameOver);
             }
         }
+        /**
+         * Si la manzana ha sido comida genera otra en una posicion aleatoria
+         */
         if(manzanaComida){
             Random rd = new Random();
             do{
@@ -157,6 +172,10 @@ public class PantallaJuego implements Pantalla, KeyListener{
 
     }
 
+    /**
+     * Este metodo controla el funcionamiento de las teclas de direccion
+     * @param e
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int tecla = e.getKeyCode();
@@ -164,25 +183,25 @@ public class PantallaJuego implements Pantalla, KeyListener{
             derecha = true;
             arriba = false;
             abajo = false;
-            tiempo=5;
+            tiempo=velocidad;
         }
         if(tecla == KeyEvent.VK_LEFT && !derecha){
             izquierda = true;
             arriba = false;
             abajo = false;
-            tiempo=5;
+            tiempo=velocidad;
         }
         if(tecla == KeyEvent.VK_UP && !abajo){
             derecha = false;
             arriba = true;
             izquierda = false;
-            tiempo=5;
+            tiempo=velocidad;
         }
         if(tecla == KeyEvent.VK_DOWN && !arriba){
             derecha = false;
             izquierda = false;
             abajo = true;
-            tiempo=5;
+            tiempo=velocidad;
         }
     }
 
