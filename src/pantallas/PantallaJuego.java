@@ -48,7 +48,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
         this.panelJuego.setBackground(Color.black);
         manzana = new Manzana(300,300,"imagenes/manzana.png");
         if(serpiente.size() == 0){
-            serpiente.add(0,new Sprite(posX, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
+            serpiente.add(0,new Sprite(posX, posY, 50, "imagenes/susuwatariDerecha.png"));
         }
         fuente = new Font("American Typewriter", Font.BOLD, 40);
     }
@@ -70,7 +70,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
             tiempo++;
             if(tiempo>5){
                 if(derecha){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariDerecha.png"));
                     //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
                     serpiente.remove(0);
                     posX+=50;
@@ -79,7 +79,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     }
                 }
                 if(izquierda){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariIzquierda.png"));
                     //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightIzquierda.png"));
                     serpiente.remove(0);
                     posX-=50;
@@ -88,7 +88,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     }
                 }
                 if(arriba){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraightVertical.png"));
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariArriba.png"));
                     //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightArriba.png"));
                     serpiente.remove(0);
                     posY-=50;
@@ -97,7 +97,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     }
                 }
                 if(abajo){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraightVertical.png"));
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariAbajo.png"));
                     //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightAbajo.png"));
                     serpiente.remove(0);
                     posY+=50;
@@ -112,13 +112,13 @@ public class PantallaJuego implements Pantalla, KeyListener{
             manzanaComida = true;
             puntuacion++;
             if(arriba){
-                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightArriba.png"));
+                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariArriba.png"));
             }else if(abajo){
-                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightAbajo.png"));
+                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariAbajo.png"));
             }else if(derecha){
-                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
+                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariDerecha.png"));
             }else if(izquierda){
-                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightIzquierda.png"));
+                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariIzquierda.png"));
             }
 
         }
