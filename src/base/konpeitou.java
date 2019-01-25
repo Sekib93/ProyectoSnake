@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Manzana {
+public class konpeitou {
     private int posX;
     private int posY;
     private int ancho;
@@ -14,7 +14,7 @@ public class Manzana {
     private String rutaImagen;
     private BufferedImage bfImagen;
 
-    public Manzana(int posX, int posY, String rutaImagen) {
+    public konpeitou(int posX, int posY, String rutaImagen) {
         this.posX = posX;
         this.posY = posY;
         this.ancho = 50;
@@ -23,14 +23,14 @@ public class Manzana {
         actualizarBuffer();
     }
 
-    public boolean colisionan(Sprite otroSprite) {
+    public boolean colisionan(Susuwatari otroSusuwatari) {
         boolean colision = false;
         int centro1 = posX+(ancho/2);
         int centroUno = posY+(alto/2);
-        int centro2 = otroSprite.getPosX()+(otroSprite.getAncho()/2);
-        int centroOtro = otroSprite.getPosY()+(otroSprite.getAlto()/2);
+        int centro2 = otroSusuwatari.getPosX()+(otroSusuwatari.getAncho()/2);
+        int centroOtro = otroSusuwatari.getPosY()+(otroSusuwatari.getAlto()/2);
         int r1 = ancho/2;
-        int r2 = otroSprite.getAncho()/2;
+        int r2 = otroSusuwatari.getAncho()/2;
         double distancia = Math.sqrt(Math.pow((centro1-centro2), 2)
                 +Math.pow((centroUno-centroOtro), 2));
         if((r1+r2)>=distancia) {

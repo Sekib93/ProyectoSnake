@@ -31,7 +31,7 @@ public class PantallaInicial implements Pantalla {
     @Override
     public void inicializarPantalla() {
         try {
-            this.bfOriginal = ImageIO.read(new File("imagenes/imagenInicioSnake.jpg"));
+            this.bfOriginal = ImageIO.read(new File("imagenes/susuwatariInicio.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }

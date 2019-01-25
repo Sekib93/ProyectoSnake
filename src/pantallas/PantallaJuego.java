@@ -1,9 +1,9 @@
 package pantallas;
 
-import base.Manzana;
+import base.Susuwatari;
+import base.konpeitou;
 import base.PanelJuego;
 import base.Pantalla;
-import base.Sprite;
 
 import java.awt.*;
 import java.awt.event.ComponentEvent;
@@ -22,12 +22,12 @@ public class PantallaJuego implements Pantalla, KeyListener{
     private boolean arriba = false;
     private boolean abajo = false;
 
-    private ArrayList<Sprite> serpiente;
+    private ArrayList<Susuwatari> grupoSusuwatari;
 
     private int posX = 10;
     private int posY = 10;
     private boolean manzanaComida = false;
-    private Manzana manzana;
+    private konpeitou konpeitou;
     private int puntuacion = 0;
     private int tiempo = 0;
     private Font fuente;
@@ -35,20 +35,20 @@ public class PantallaJuego implements Pantalla, KeyListener{
 
     public PantallaJuego(PanelJuego panelJuego) {
         this.panelJuego = panelJuego;
-        this.serpiente = new ArrayList<>();
+        this.grupoSusuwatari = new ArrayList<>();
         this.panelJuego.addKeyListener(this);
     }
     /**
-     * Primero comprobamos que nuestra serpiente tenga la cabeza e
+     * Primero comprobamos que nuestra grupoSusuwatari tenga la cabeza e
      * inicializamos el fondo del panel
      *
      */
     @Override
     public void inicializarPantalla() {
         this.panelJuego.setBackground(Color.black);
-        manzana = new Manzana(300,300,"imagenes/manzana.png");
-        if(serpiente.size() == 0){
-            serpiente.add(0,new Sprite(posX, posY, 50, "imagenes/susuwatariDerecha.png"));
+        konpeitou = new konpeitou(300,300,"imagenes/konpeitou.png");
+        if(grupoSusuwatari.size() == 0){
+            grupoSusuwatari.add(0,new Susuwatari(posX, posY, 50, "imagenes/susuwatariDerecha.png"));
         }
         fuente = new Font("American Typewriter", Font.BOLD, 40);
     }
@@ -62,10 +62,10 @@ public class PantallaJuego implements Pantalla, KeyListener{
         g.setFont(fuente);
         g.setColor(Color.WHITE);
         g.drawString(String.valueOf(puntuacion),panelJuego.getWidth()-50, 50);
-        for (int i = 0; i < serpiente.size(); i++) {
-            serpiente.get(i).pintarSprite(g);
+        for (int i = 0; i < grupoSusuwatari.size(); i++) {
+            grupoSusuwatari.get(i).pintarSprite(g);
         }
-        manzana.pintarSprite(g);
+        konpeitou.pintarSprite(g);
 
     }
 
@@ -77,32 +77,32 @@ public class PantallaJuego implements Pantalla, KeyListener{
          */
         if(tiempo>velocidad){
                 if(derecha){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariDerecha.png"));
-                    serpiente.remove(0);
+                    grupoSusuwatari.add(new Susuwatari(posX,posY,50,"imagenes/susuwatariDerecha.png"));
+                    grupoSusuwatari.remove(0);
                     posX+=50;
                     if(posX>=panelJuego.getWidth()){
                         posX=0;
                     }
                 }
                 if(izquierda){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariIzquierda.png"));
-                    serpiente.remove(0);
+                    grupoSusuwatari.add(new Susuwatari(posX,posY,50,"imagenes/susuwatariIzquierda.png"));
+                    grupoSusuwatari.remove(0);
                     posX-=50;
                     if(posX<=0){
-                        posX=panelJuego.getWidth();
+                        posX=panelJuego.getWidth()-50;
                     }
                 }
                 if(arriba){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariArriba.png"));
-                    serpiente.remove(0);
+                    grupoSusuwatari.add(new Susuwatari(posX,posY,50,"imagenes/susuwatariArriba.png"));
+                    grupoSusuwatari.remove(0);
                     posY-=50;
                     if(posY<=0){
-                        posY=panelJuego.getHeight();
+                        posY=panelJuego.getHeight()-50;
                     }
                 }
                 if(abajo){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/susuwatariAbajo.png"));
-                    serpiente.remove(0);
+                    grupoSusuwatari.add(new Susuwatari(posX,posY,50,"imagenes/susuwatariAbajo.png"));
+                    grupoSusuwatari.remove(0);
                     posY+=50;
                     if(posY>=panelJuego.getHeight()){
                         posY=0;
@@ -112,45 +112,45 @@ public class PantallaJuego implements Pantalla, KeyListener{
                 tiempo = 0;
             }
         /**
-         * Si come la manzana aparecera una nueva parte del cuerpo mirando en la direccion a la que iba
+         * Si come la konpeitou aparecera una nueva parte del cuerpo mirando en la direccion a la que iba
          */
-        if(manzana.colisionan(serpiente.get(serpiente.size()-1))){
+        if(konpeitou.colisionan(grupoSusuwatari.get(grupoSusuwatari.size()-1))){
             manzanaComida = true;
             puntuacion++;
             if(puntuacion%10==0 && velocidad>0){
                 velocidad--;
             }
             if(arriba){
-                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariArriba.png"));
+                grupoSusuwatari.add(0,new Susuwatari(posX,posY ,50,"imagenes/susuwatariArriba.png"));
             }else if(abajo){
-                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariAbajo.png"));
+                grupoSusuwatari.add(0,new Susuwatari(posX,posY ,50,"imagenes/susuwatariAbajo.png"));
             }else if(derecha){
-                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariDerecha.png"));
+                grupoSusuwatari.add(0,new Susuwatari(posX,posY ,50,"imagenes/susuwatariDerecha.png"));
             }else if(izquierda){
-                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/susuwatariIzquierda.png"));
+                grupoSusuwatari.add(0,new Susuwatari(posX,posY ,50,"imagenes/susuwatariIzquierda.png"));
             }
 
         }
         /**
-         * Si la serpiente choca con sigo misma perdera el juego y saltara la pantalla gameOver
+         * Si la grupoSusuwatari choca con sigo misma perdera el juego y saltara la pantalla gameOver
          */
-        for (int i = 2; i < serpiente.size(); i++) {
-            if(serpiente.get(0).colision(serpiente.get(i))){
+        for (int i = 2; i < grupoSusuwatari.size(); i++) {
+            if(grupoSusuwatari.get(0).colision(grupoSusuwatari.get(i))){
                 PantallaGameOver pantallaGameOver = new PantallaGameOver(panelJuego,puntuacion);
                 pantallaGameOver.inicializarPantalla();
                 panelJuego.setPantallaActual(pantallaGameOver);
             }
         }
         /**
-         * Si la manzana ha sido comida genera otra en una posicion aleatoria
+         * Si la konpeitou ha sido comida genera otra en una posicion aleatoria
          */
         if(manzanaComida){
             Random rd = new Random();
             do{
-                manzana.setPosX(rd.nextInt(panelJuego.getWidth()));
-                manzana.setPosY(rd.nextInt(panelJuego.getHeight()));
-            } while ((manzana.getPosY()>=panelJuego.getHeight() || manzana.getPosY()<=0) &&
-                    (manzana.getPosX()>=panelJuego.getWidth() || manzana.getPosX()<=0));
+                konpeitou.setPosX(rd.nextInt(panelJuego.getWidth()));
+                konpeitou.setPosY(rd.nextInt(panelJuego.getHeight()));
+            } while ((konpeitou.getPosY()>=panelJuego.getHeight() || konpeitou.getPosY()<=0) &&
+                    (konpeitou.getPosX()>=panelJuego.getWidth() || konpeitou.getPosX()<=0));
             manzanaComida =false;
         }
 

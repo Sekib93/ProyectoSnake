@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Sprite {
+public class Susuwatari {
     private int posX;
     private int posY;
     private int ancho;
@@ -24,7 +24,7 @@ public class Sprite {
      * @param cuadrado
      * @param rutaImagen
      */
-    public Sprite(int posX, int posY, int cuadrado, String rutaImagen) {
+    public Susuwatari(int posX, int posY, int cuadrado, String rutaImagen) {
         this.rutaImagen = rutaImagen;
         this.posY = posY;
         this.posX = posX;
@@ -33,7 +33,7 @@ public class Sprite {
         actualizarBuffer();
 
     }
-    public Sprite(int posX, int posY, int cuadrado) {
+    public Susuwatari(int posX, int posY, int cuadrado) {
         this.posY = posY;
         this.posX = posX;
         this.ancho = cuadrado;
@@ -92,11 +92,12 @@ public class Sprite {
 
     }
     /**
-     * Metodo para actualizar el buffer de cada Sprite
+     * Metodo para actualizar el buffer de cada Susuwatari
      */
     public void actualizarBuffer(){
         this.bfImagen = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_ARGB);
         Graphics g = this.bfImagen.getGraphics();
+        g.clearRect(0,0,ancho,alto);
         try {
             BufferedImage imagenSprite = ImageIO.read(new File(rutaImagen));
             g.drawImage(imagenSprite.getScaledInstance(ancho,alto, Image.SCALE_SMOOTH), 0 , 0, null);
@@ -105,7 +106,7 @@ public class Sprite {
             g.fillRect(posX,posY,ancho,alto);
         }
     }
-    public boolean colision(Sprite otro) {
+    public boolean colision(Susuwatari otro) {
         boolean colisionX = false;
         boolean colisionY = false;
         if(posX+ancho>otro.posX) {//el de la izquierda es el otro
