@@ -44,7 +44,7 @@ public class PantallaInicial implements Pantalla {
         g.setColor(color);
         g.setFont(fuente);
         g.drawString("HAZ CLICK PARA EMPEZAR A JUGAR", panelJuego.getWidth()/2-450,
-                panelJuego.getHeight()/2-40);
+                panelJuego.getHeight()/2);
     }
 
     @Override

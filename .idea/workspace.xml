@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ec7aca6-f5ac-48f5-ada6-c60488714c93" name="Default Changelist" comment="2 - Fin VentanaPrincipal">
-      <change afterPath="$PROJECT_DIR$/imagenes/konpeitou.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imagenes/susuwatariInicio.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imagenes/imagenInicioSnake.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imagenes/manzana.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imagenes/susuwatari-xux-prints.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imagenes/susuwatari.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoSnake/base/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProyectoSnake/base/Sprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoSnake/pantallas/PantallaInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProyectoSnake/pantallas/PantallaInicial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoSnake/pantallas/PantallaJuego.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProyectoSnake/pantallas/PantallaJuego.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Manzana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/konpeitou.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Susuwatari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imagenes/gameOver.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imagenes/gameOver.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/VentanaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/VentanaPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pantallas/PantallaGameOver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pantallas/PantallaGameOver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pantallas/PantallaInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pantallas/PantallaInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pantallas/PantallaJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pantallas/PantallaJuego.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,11 +16,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaJuego.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+            <state relative-caret-position="360">
+              <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaGameOver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="47" column="79" selection-start-line="47" selection-start-column="79" selection-end-line="47" selection-end-column="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaInicial.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="424">
+              <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/base/PanelJuego.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1009#1010#0" expanded="true" />
+                <element signature="e#1057#1058#0" expanded="true" />
+                <element signature="e#1469#1470#0" expanded="true" />
+                <element signature="e#1529#1530#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/base/VentanaPrincipal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,19 +103,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/base/Main.java" />
-        <option value="$PROJECT_DIR$/src/base/VentanaPrincipal.java" />
         <option value="$PROJECT_DIR$/src/base/Serpiente.java" />
         <option value="$PROJECT_DIR$/src/base/Pantalla.java" />
         <option value="$PROJECT_DIR$/src/base/PanelJuego.java" />
         <option value="$PROJECT_DIR$/src/base/Manzana.java" />
-        <option value="$PROJECT_DIR$/src/pantallas/PantallaGameOver.java" />
-        <option value="$PROJECT_DIR$/src/pantallas/PantallaInicial.java" />
         <option value="$PROJECT_DIR$/src/base/Sprite.java" />
         <option value="$PROJECT_DIR$/src/pantallas/PantallaJuego.java" />
+        <option value="$PROJECT_DIR$/src/pantallas/PantallaGameOver.java" />
+        <option value="$PROJECT_DIR$/src/pantallas/PantallaInicial.java" />
+        <option value="$PROJECT_DIR$/src/base/VentanaPrincipal.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="1027" />
@@ -121,7 +164,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548419997767" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548421513716" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
@@ -176,10 +219,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14896215" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14896215" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -248,16 +291,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/VentanaPrincipal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imagenes/spriteSerpiente/blueHeadTurn.png" />
     <entry file="file://$PROJECT_DIR$/imagenes/spriteSerpiente/blueTail.png" />
     <entry file="file://$PROJECT_DIR$/src/base/konpeitou.java">
@@ -283,20 +316,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaGameOver.java">
+    <entry file="file://$PROJECT_DIR$/imagenes/spriteSerpiente/blueBodyTurn.png" />
+    <entry file="file://$PROJECT_DIR$/src/base/Susuwatari.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+        <state relative-caret-position="142">
+          <caret line="99" column="34" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imagenes/spriteSerpiente/blueBodyTurn.png" />
+    <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaJuego.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaGameOver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="47" column="79" selection-start-line="47" selection-start-column="79" selection-end-line="47" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaInicial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/base/PanelJuego.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
+        <state relative-caret-position="1260">
           <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -308,30 +371,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/Susuwatari.java">
+    <entry file="file://$PROJECT_DIR$/src/base/VentanaPrincipal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="99" column="34" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaInicial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="33" column="78" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaJuego.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+        <state relative-caret-position="240">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

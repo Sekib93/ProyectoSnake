@@ -41,12 +41,14 @@ public class PantallaGameOver implements Pantalla {
     @Override
     public void pintarPantalla(Graphics g) {
         g.drawImage(imageReescalada,0,0,null);
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         g.setFont(new Font("American Typewriter", Font.BOLD, 60));
         g.drawString(String.valueOf(puntuacion), panelJuego.getWidth()-150, panelJuego.getHeight()-50);
-        g.setFont(new Font("American Typewriter", Font.BOLD, 40));
-        g.drawString(String.valueOf("HAZ CLICK PARA VOLVER A JUGAR"),panelJuego.getWidth()/2-400,
-                panelJuego.getHeight()/2+250);
+        g.setFont(new Font("American Typewriter", Font.BOLD, 35));
+        g.drawString("HAZ CLICK PARA VOLVER A JUGAR",panelJuego.getWidth()/2-350,
+                panelJuego.getHeight()/2+170);
+        g.setFont(new Font("American Typewriter", Font.BOLD, 60));
+        g.drawString("GAME OVER", panelJuego.getWidth()/3-300,panelJuego.getHeight()/4);
         reescalarImagen();
     }
 
