@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class VentanaPrincipal {
 
-    final int anchoPantalla = 1280;
-    final int altoPantalla = 720;
+    final int anchoPantalla = 1200;
+    final int altoPantalla = 775;
 
     private JFrame ventana;
     public PanelJuego panelJuego;

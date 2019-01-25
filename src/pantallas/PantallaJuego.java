@@ -24,8 +24,8 @@ public class PantallaJuego implements Pantalla, KeyListener{
 
     private ArrayList<Susuwatari> grupoSusuwatari;
 
-    private int posX = 10;
-    private int posY = 10;
+    private int posX = 0;
+    private int posY = 0;
     private boolean manzanaComida = false;
     private konpeitou konpeitou;
     private int puntuacion = 0;
@@ -80,7 +80,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     grupoSusuwatari.add(new Susuwatari(posX,posY,50,"imagenes/susuwatariDerecha.png"));
                     grupoSusuwatari.remove(0);
                     posX+=50;
-                    if(posX>=panelJuego.getWidth()){
+                    if(posX>panelJuego.getWidth()){
                         posX=0;
                     }
                 }
@@ -88,7 +88,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     grupoSusuwatari.add(new Susuwatari(posX,posY,50,"imagenes/susuwatariIzquierda.png"));
                     grupoSusuwatari.remove(0);
                     posX-=50;
-                    if(posX<=0){
+                    if(posX<0){
                         posX=panelJuego.getWidth()-50;
                     }
                 }
@@ -96,7 +96,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     grupoSusuwatari.add(new Susuwatari(posX,posY,50,"imagenes/susuwatariArriba.png"));
                     grupoSusuwatari.remove(0);
                     posY-=50;
-                    if(posY<=0){
+                    if(posY<0){
                         posY=panelJuego.getHeight()-50;
                     }
                 }
@@ -104,7 +104,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     grupoSusuwatari.add(new Susuwatari(posX,posY,50,"imagenes/susuwatariAbajo.png"));
                     grupoSusuwatari.remove(0);
                     posY+=50;
-                    if(posY>=panelJuego.getHeight()){
+                    if(posY>panelJuego.getHeight()){
                         posY=0;
                     }
                 }
