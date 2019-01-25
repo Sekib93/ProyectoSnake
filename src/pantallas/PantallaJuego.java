@@ -48,7 +48,8 @@ public class PantallaJuego implements Pantalla, KeyListener{
         this.panelJuego.setBackground(Color.black);
         manzana = new Manzana(300,300,"imagenes/manzana.png");
         if(serpiente.size() == 0){
-            serpiente.add(new Sprite(posX+50, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
+            serpiente.add(new Sprite(posX, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
+            serpiente.add(new Sprite(posX, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
         }
         fuente = new Font("American Typewriter", Font.BOLD, 40);
     }
@@ -70,32 +71,39 @@ public class PantallaJuego implements Pantalla, KeyListener{
             tiempo++;
             if(tiempo>5){
                 if(derecha){
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
+                    serpiente.remove(0);
                     posX+=50;
                     if(posX>=panelJuego.getWidth()){
                         posX=0;
                     }
                 }
                 if(izquierda){
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightIzquierda.png"));
+                    serpiente.remove(0);
                     posX-=50;
                     if(posX<=0){
                         posX=panelJuego.getWidth();
                     }
                 }
                 if(arriba){
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightArriba.png"));
+                    serpiente.remove(0);
                     posY-=50;
                     if(posY<=0){
                         posY=panelJuego.getHeight();
                     }
                 }
                 if(abajo){
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightAbajo.png"));
+                    serpiente.remove(0);
                     posY+=50;
                     if(posY>=panelJuego.getHeight()){
                         posY=0;
                     }
                 }
 
-                serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
-                serpiente.remove(0);
+
 
 
                 if(manzana.colisionan(serpiente.get(serpiente.size()-1))){
