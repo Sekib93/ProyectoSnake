@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8ec7aca6-f5ac-48f5-ada6-c60488714c93" name="Default Changelist" comment="2 - Fin VentanaPrincipal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imagenes/spriteSerpiente/blueBodyStraight.png" beforeDir="false" afterPath="$PROJECT_DIR$/imagenes/spriteSerpiente/blueBodyStraight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imagenes/spriteSerpiente/blueBodyTurn.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProyectoSnake/pantallas/PantallaJuego.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProyectoSnake/pantallas/PantallaJuego.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pantallas/PantallaJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pantallas/PantallaJuego.java" afterDir="false" />
     </list>
@@ -18,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaJuego.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="122" column="106" selection-start-line="122" selection-start-column="106" selection-end-line="122" selection-end-column="106" />
+            <state relative-caret-position="171">
+              <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/PanelJuego.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
+            <state relative-caret-position="510">
               <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,6 +88,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -97,12 +100,6 @@
               <item name="ProyectoSnake" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProyectoSnake" type="462c0819:PsiDirectoryNode" />
               <item name="imagenes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProyectoSnake" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProyectoSnake" type="462c0819:PsiDirectoryNode" />
-              <item name="imagenes" type="462c0819:PsiDirectoryNode" />
-              <item name="spriteSerpiente" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProyectoSnake" type="b2602c69:ProjectViewProjectNode" />
@@ -119,12 +116,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548375281536" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548375955703" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
@@ -176,7 +173,7 @@
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17887668" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14713065" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -259,9 +256,6 @@
     <entry file="file://$PROJECT_DIR$/imagenes/spriteSerpiente/blueTail.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/imagenes/spriteSerpiente/blueBodyTurn.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/base/Manzana.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -311,17 +305,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/PanelJuego.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1057#1058#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaGameOver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="634">
@@ -332,12 +315,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imagenes/spriteSerpiente/blueBodyTurn.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pantallas/PantallaJuego.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="122" column="106" selection-start-line="122" selection-start-column="106" selection-end-line="122" selection-end-column="106" />
+        <state relative-caret-position="171">
+          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/PanelJuego.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1057#1058#0" expanded="true" />
           </folding>
         </state>
       </provider>

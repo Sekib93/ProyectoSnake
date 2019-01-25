@@ -48,8 +48,7 @@ public class PantallaJuego implements Pantalla, KeyListener{
         this.panelJuego.setBackground(Color.black);
         manzana = new Manzana(300,300,"imagenes/manzana.png");
         if(serpiente.size() == 0){
-            serpiente.add(new Sprite(posX, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
-            serpiente.add(new Sprite(posX, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
+            serpiente.add(0,new Sprite(posX, posY, 50, "imagenes/spriteSerpiente/blueHeadStraight.png"));
         }
         fuente = new Font("American Typewriter", Font.BOLD, 40);
     }
@@ -60,11 +59,6 @@ public class PantallaJuego implements Pantalla, KeyListener{
         g.setColor(Color.WHITE);
         g.drawString(String.valueOf(puntuacion),panelJuego.getWidth()-50, 50);
         for (int i = 0; i < serpiente.size(); i++) {
-            if(i == 0){
-                serpiente.get(i).setRutaImagen("imagenes/spriteSerpiente/blueHeadStraight.png");
-            } else if(i==serpiente.size()-1){
-                serpiente.get(i).setRutaImagen("imagenes/spriteSerpiente/blueTail");
-            }
             serpiente.get(i).pintarSprite(g);
         }
         manzana.pintarSprite(g);
@@ -76,7 +70,8 @@ public class PantallaJuego implements Pantalla, KeyListener{
             tiempo++;
             if(tiempo>5){
                 if(derecha){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
+                    //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
                     serpiente.remove(0);
                     posX+=50;
                     if(posX>=panelJuego.getWidth()){
@@ -84,7 +79,8 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     }
                 }
                 if(izquierda){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightIzquierda.png"));
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraight.png"));
+                    //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightIzquierda.png"));
                     serpiente.remove(0);
                     posX-=50;
                     if(posX<=0){
@@ -92,7 +88,8 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     }
                 }
                 if(arriba){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightArriba.png"));
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraightVertical.png"));
+                    //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightArriba.png"));
                     serpiente.remove(0);
                     posY-=50;
                     if(posY<=0){
@@ -100,7 +97,8 @@ public class PantallaJuego implements Pantalla, KeyListener{
                     }
                 }
                 if(abajo){
-                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightAbajo.png"));
+                    serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueBodyStraightVertical.png"));
+                    //serpiente.add(new Sprite(posX,posY,50,"imagenes/spriteSerpiente/blueHeadStraightAbajo.png"));
                     serpiente.remove(0);
                     posY+=50;
                     if(posY>=panelJuego.getHeight()){
@@ -114,13 +112,13 @@ public class PantallaJuego implements Pantalla, KeyListener{
             manzanaComida = true;
             puntuacion++;
             if(arriba){
-                serpiente.add(new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightArriba.png"));
+                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightArriba.png"));
             }else if(abajo){
-                serpiente.add(new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightAbajo.png"));
+                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightAbajo.png"));
             }else if(derecha){
-                serpiente.add(new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
+                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraight.png"));
             }else if(izquierda){
-                serpiente.add(new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightIzquierda.png"));
+                serpiente.add(0,new Sprite(posX,posY ,50,"imagenes/spriteSerpiente/blueHeadStraightIzquierda.png"));
             }
 
         }
